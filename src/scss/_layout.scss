@@ -24,7 +24,7 @@
     @include flex(column, nowrap, flex-start, center);
     @include responsive() {
 
-        @include grid(2, 1, 1em);
+        @include grid(2, 1, 0);
         grid-template-columns: auto 1fr;
     }
 }
@@ -46,9 +46,6 @@
     font-size: 1.4rem;
 }
 
-.p {
-
-}
 .a {
     width: fit-content;
     color: $color-link;
@@ -97,6 +94,7 @@
 .header {
 
     @include responsive() {
+        min-width: 13em;
         border-right: 1px solid $color-primary;
 
         padding: 2em 0;
@@ -121,10 +119,6 @@
         color: inherit;
 
         @include flex(row, nowrap, space-between, flex-start )
-    }
-
-    &__li {
-        
     }
 
     &__ul {
@@ -181,7 +175,7 @@
 // MAIN
 .main {
 
-    padding: 0 2em;
+    padding: 0 3em;
     @include responsive() {
         grid-column: 2 / 3;
 
@@ -208,6 +202,7 @@
 .code {
     max-width: 100%;
     background-color: rgb(127, 127, 127);
+    color: $color-secondary;
     overflow:scroll;
     border-radius: 5px;
 
@@ -220,6 +215,8 @@
 
 // FOOTER
 .footer {
+    background-color: rgb(75, 75, 75);
+    color: $color-secondary;
 
     padding: 1em;
     margin-top: auto;
@@ -231,5 +228,9 @@
 
     &__span{
         display: flex;
+    }
+
+    &__a {
+        color: $color-link-dark;
     }
 }
