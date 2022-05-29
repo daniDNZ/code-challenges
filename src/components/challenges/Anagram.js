@@ -13,25 +13,26 @@ function Anagram() {
       let word1 = document.querySelector('#word1').value;
       let word2 = document.querySelector('#word2').value;
 
-      let isWhiteSpace = false;
+      let isInvalid = false;
       let arr1 = word1.toLowerCase().split('');
       let arr2 = word2.toLowerCase().split('');
+
+      const checks = (arr) => {
+        if (arr.length === 0 || JSON.stringify(arr1) === JSON.stringify(arr2)) isInvalid = true;
+
+        arr.forEach(char => {
+          if (char === ' ') isInvalid = true;
+        });
+      }
+
+      checks(arr1);
+      checks(arr2);
 
       arr1 = arr1.sort();
       arr2 = arr2.sort();
 
-      const isAWord = (arr) => {
-        if (arr.length === 0) isWhiteSpace = true;
-        arr.forEach(char => {
-          if (char === ' ') isWhiteSpace = true;
-        });
-      }
-
-      isAWord(arr1);
-      isAWord(arr2);
-
-      isWhiteSpace
-        ? setResponse('Una palabra no puede contener espacios ni estar vacía.')
+      isInvalid
+        ? setResponse('Una palabra no puede contener espacios ni estar vacía, tampoco pueden ser la misma palabra.')
         : (
           JSON.stringify(arr1) === JSON.stringify(arr2)
             ? setResponse(`'${word1}' y '${word2}' son anagramas`)
@@ -62,25 +63,25 @@ const isAnagram = () => {
   let word1 = document.querySelector('#word1').value;   // Recogemos las palabras
   let word2 = document.querySelector('#word2').value;
 
-  let isWhiteSpace = false;                           
+  let isInvalid = false;                           
 
   let arr1 = word1.toLowerCase().split('');             // Pasamos las palabras a minúsculas y metemos los caracteres en arrays
   let arr2 = word2.toLowerCase().split('');             // con la función split()
 
-  arr1 = arr1.sort();                                   // Ordenamos los arrays
-  arr2 = arr2.sort();
-
-  const isAWord = (arr) => {                            // Comprobamos que se han introducido palabras y que no tienen espacios
-    if (arr.length === 0) isWhiteSpace = true;
+  const checks = (arr) => {                            // Comprobamos que se han introducido palabras, que no tienen espacios y que son distintas.
+    if (arr.length === 0 || JSON.stringify(arr1) === JSON.stringify(arr2)) isInvalid = true;
     arr.forEach(char => {
-      if (char === ' ') isWhiteSpace = true;
+      if (char === ' ') isInvalid = true;
     });
   }
 
-  isAWord(arr1);
-  isAWord(arr2);
+  checks(arr1);
+  checks(arr2);
 
-  isWhiteSpace                                          
+  arr1 = arr1.sort();                                   // Ordenamos los arrays
+  arr2 = arr2.sort();
+
+  isInvalid                                          
     ? setResponse('Una palabra no puede contener espacios ni estar vacía.')
     : (
       JSON.stringify(arr1) === JSON.stringify(arr2)     // Utilizamos JSON.stringify() para pasar los arrays a strings y compararlos
