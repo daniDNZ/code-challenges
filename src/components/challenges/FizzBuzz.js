@@ -1,25 +1,29 @@
 import { Fragment } from "react";
 
-function FizzBuzz() {
+/*
+  * Enunciado: Escribe un programa que muestre los números de 1 a 100 (ambos incluidos), sustituyendo los siguientes:
+  * - Múltiplos de 3 por la palabra "fizz".
+  * - Múltiplos de 5 por la palabra "buzz".
+  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
+  *
+*/
 
-  /*
-   * Enunciado: Escribe un programa que muestre los números de 1 a 100 (ambos incluidos), sustituyendo los siguientes:
-   * - Múltiplos de 3 por la palabra "fizz".
-   * - Múltiplos de 5 por la palabra "buzz".
-   * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
-   *
-  */
+export const fibu = (i) => {
+  let print;
+    
+  i % 3 === 0
+      ? (i % 5 === 0 ? print = 'fizzbuzz' : print = 'fizz')
+      : (i % 5 === 0 ? print = 'buzz' : print = i);
+
+  return print;
+}
+
+function FizzBuzz() {
 
   let result = [];
 
   for (let i = 1; i <= 100; i++) {
-    let print;
-
-    i % 3 === 0
-      ? (i % 5 === 0 ? print = 'fizzbuzz' : print = 'fizz')
-      : (i % 5 === 0 ? print = 'buzz' : print = i);
-
-    result.push(print);
+    result = [...result, fibu(i)];
   }
 
   let n = 0; // Para el map

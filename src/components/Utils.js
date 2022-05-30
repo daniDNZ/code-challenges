@@ -3,6 +3,12 @@ export const capitalize = (word) => {
 }
 
 export const allItems = {
-    challenges: ['fizz-buzz', 'anagram', 'fibonacci'],
+    challenges: [
+        'fizz-buzz', 
+        'anagram', 
+        'fibonacci', 
+        'prime-number',
+        'polygon-area'
+    ],
     apps: ['app1', 'app2', 'app3']
 }

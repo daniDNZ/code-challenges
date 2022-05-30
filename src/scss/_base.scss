@@ -12,6 +12,8 @@ $colors: (
     '3'     : rgb(219, 37, 37),
     '4'     : rgb(221, 108, 108),
     '5'     : rgb(130, 51, 51),
+    '6'     : rgb(208, 208, 208),
+    '7'     : rgb(127, 127, 127),
 );
 
 // Fonts
@@ -27,6 +29,8 @@ $color-link             : map-get($colors, '5');
 $color-link-dark        : map-get($colors, '4');
 $color-primary-dark     : map-get($colors, '2');
 $color-secondary-dark   : map-get($colors, '1');
+$color-input            : map-get($colors, '6');
+$color-input-dark       : map-get($colors, '7');
 
 
 // Fonts
@@ -165,7 +169,7 @@ label {
     display: block;
     color: inherit;
     /* optional */
-    appearance: none;
+    // appearance: none;
 }
 
 // Input Focus
